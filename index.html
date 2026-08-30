@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Movement Icon</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #70c6ff;
+        }
+
+        .balls {
+            width: 350px;
+            position: absolute;
+            left: 100px;
+            top: 10px;
+        }
+
+        .balls.jump {
+            animation: jump 0.6s ease;
+        }
+
+        .balls:hover {
+            cursor: pointer;
+        }
+
+        
+        @keyframes jump {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-120px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .boats {
+            left: 1500px;
+            width: 350px;
+            position: absolute;
+            top: 10px;
+        }
+
+        .boats:hover {
+            filter: grayscale(100%) brightness(80%);
+            cursor: pointer;
+        }
+
+        .jet {
+            left: 820px;
+            width: 350px;
+            position: absolute;
+            top: 50px;
+        }
+
+        .jet:hover {
+            filter: sepia(1) hue-rotate(180deg) saturate(2);
+            cursor: pointer;
+        }
+
+        .gym {
+            left: 140px;
+            width: 350px;
+            position: absolute;
+            top: 420px;
+        }
+
+        .gym:hover {
+            filter: sepia(100%) saturate(500%) hue-rotate(5deg);
+            cursor: pointer;
+        }
+
+        .shiip {
+            left: 120px;
+            position: absolute; 
+            width: 300px;
+            top: 970px;
+        }
+
+        .shiip:hover {
+            filter: brightness(8%);
+            cursor: pointer;
+        }
+
+        .chuanmao {
+            left: 900px;
+            position: absolute;
+            width: 180px;
+            top: 500px;
+        }
+
+        .chuanmao:hover {
+            filter: grayscale(100%) brightness(80%);
+            cursor: pointer;
+        }
+
+        .ufo {
+            left: 1500px;
+            position: absolute;
+            width: 300px;
+            top: 600px;
+        }
+
+        .ufo:hover {
+            filter: sepia(100%) saturate(150%) hue-rotate(300deg);
+            cursor: pointer;
+        }
+
+        .carr {
+            left: 860px;
+            position: absolute;
+            width: 250px;
+            top: 900px;
+        }
+
+        .carr:hover {
+            filter: sepia(100%);
+            cursor: pointer;
+        }
+
+        .doggyfinal {
+            left: 1525px;
+            position: absolute;
+            width: 250px;
+            top: 860px;
+        }
+
+        .doggyfinal:hover {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <img class="balls" src="icons/balls.png" alt="balls"
+    onmouseover="this.src='icons/basketballblue.png'"
+    onmouseout="this.src='icons/balls.png'"
+    onclick="playSound()">
+
+    <img class="doggyfinal" src="icons/doggyfinal.png"
+    onmouseover="this.src='icons/dog.png'"
+    onmouseout="this.src='icons/doggyfinal.png'"
+    onclick="document.getElementById('bark').play()">
+
+    <img class="boats" src="icons/boats.png" alt="Boats" onclick="document.getElementById('boatwateraudio').play()">
+
+    <img class="ufo" src="icons/ufo.png" onclick="document.getElementById('ufoaudio').play()">
+
+    <img class="carr" src="icons/carr.png" onclick="document.getElementById('caraudio').play()">
+
+    <img class="jet" src="icons/jet.png" alt="Jet" onclick="document.getElementById('jetAudio').play()">
+
+    <img class="gym" src="icons/gym.png" alt="gym" onclick="document.getElementById('gymaudio').play()">
+
+    <img class="shiip" src="icons/shiip.png" onclick="document.getElementById('shipsound').play()">
+
+    <img class="chuanmao" src="icons/chuanmao.png" onclick="document.getElementById('watersplashaudio').play()">
+
+    <audio id="basketball">
+        <source src="audios/Video Project 1.m4a" type="audio/mp4">
+    </audio>
+
+    <audio id="jetAudio">
+        <source src="audios/jetsound.m4a" type="audio/mp4">
+    </audio>
+
+    <audio id="boatwateraudio">
+        <source src="audios/boatwater.m4a" type="audio/mp4">
+    </audio>
+
+    <audio id="gymaudio">
+        <source src="audios/gymsound.m4a" type="audio/mp4">
+    </audio>
+
+    <audio id="watersplashaudio">
+        <source src="audios/watersplash.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="ufoaudio">
+        <source src="audios/ufosound.m4a" type="audio/mp4">
+    </audio>
+
+    <audio id="shipsound">
+        <source src="audios/shipsound.m4a" type="audio/mp4">
+    </audio>
+
+    <audio id="bark">
+        <source src="audios/dogbark.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="caraudio">
+        <source src="audios/carpassby.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        function playSound() {
+
+            
+            const ball = document.querySelector(".balls");
+
+            
+            ball.classList.add("jump");
+
+            
+            document.getElementById("basketball").play();
+
+            
+            setTimeout(function() {
+                ball.classList.remove("jump");
+            }, 600);
+
+        }
+    </script>
+
+</body>
+</html>
